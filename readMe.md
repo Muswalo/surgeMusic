@@ -15,12 +15,12 @@ To get started with Surge Music, follow these steps:
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/surge-music.git
+    git clone https://github.com/Muswalo/surgeMusic.git
     ```
 
 2. **Navigate to the project directory:**
     ```bash
-    cd surge-music
+    cd surgeMusic
     ```
 
 3. **Install dependencies:**
