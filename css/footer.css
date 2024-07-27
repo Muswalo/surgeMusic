@@ -1,0 +1,48 @@
+.footer {
+    background: linear-gradient(to bottom, #2F4F4F, #000000);
+    color: #ffffff;
+    background-color: #333333;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 190px;
+}
+
+.social-media-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-media-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icon {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+.developer-info {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #999999;
+}
+
+.developer-name {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.company-name {
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}

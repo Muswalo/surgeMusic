@@ -1,0 +1,21 @@
+{
+    "name": "amp/amp",
+    "description": "music blog",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Amp\\Amp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "emmanuel muswalo",
+            "email": "emuswalo7@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}

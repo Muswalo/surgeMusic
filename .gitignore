@@ -1,0 +1,27 @@
+# Composer dependencies
+vendor/
+
+# Build output
+build/
+dist/
+
+# Log files
+*.log
+
+# Configuration files
+config/
+.env
+
+# IDE and editor files
+*.swp
+*.DS_Store
+.idea/
+.vscode/
+
+# Temporary files
+*.tmp
+*~
+
+# Storage Files
+audio/
+img/

@@ -1,0 +1,56 @@
+.container {
+    width: 100%
+  }
+
+  .article {
+    border-radius: 0px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .article img {
+    max-width: 100%;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  .article h2 {
+    margin-bottom: 10px;
+  }
+
+  .article p {
+    margin-bottom: 20px;
+    height: 100px;
+    overflow: hidden;
+    transition: height 0.3s ease;  
+  }
+  .expanded {
+    height: auto !important;
+  }
+  .article .meta-info {
+    color: #888;
+  }
+
+  .article .meta-info span {
+    margin-right: 10px;
+  }
+
+  .btns {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .btn-read-more,
+  .btn-share {
+    border: none;
+    color: darkslategray;
+    padding: 5px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    top: 17px;
+  }
+  .line {
+      height: 1px;
+      width: 100%;
+      background-color:  rgba(0, 0, 0, 0.1);
+  }
