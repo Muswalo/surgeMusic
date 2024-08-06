@@ -67,6 +67,7 @@ function getTotalNews()
     <meta name="author" content="Emmanuel Muswalo">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
     <style>
         body {
             background-color: #f5f5f5;
@@ -199,7 +200,7 @@ function getTotalNews()
 
         <div class="dashboard-section">
             <h2>Upload News</h2>
-            <form action="upload-news.php" method="POST" enctype="multipart/form-data">
+            <form action="upload-news.php" method="POST" enctype="multipart/form-data" id="news-form">
                 <div class="form-group">
                     <label for="news-headline">Headline</label>
                     <input type="text" class="form-control" id="news-headline" name="news-headline" required>
@@ -210,7 +211,8 @@ function getTotalNews()
                 </div>
                 <div class="form-group">
                     <label for="news-content">Content</label>
-                    <textarea class="form-control" id="news-content" name="news-content" rows="5" required></textarea>
+                    <div id="editor"></div>
+                    <input type="hidden" name="news-content" id="content">
                 </div>
                 <div class="form-group">
                     <label for="news-image">Image</label>
@@ -220,9 +222,25 @@ function getTotalNews()
             </form>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+        
+        let news = document.getElementById ('news-form');
+        news.addEventListener ('submit', e => {
+            e.preventDefault ();
+        })
+        document.querySelector('#news-form').onsubmit = function() {
+            var content = document.querySelector('input[name=news-content]');
+            console.log (content)
+            content.value = quill.root.innerHTML;
+            news.submit()
+        };
+    </script>
 </body>
 </html>
