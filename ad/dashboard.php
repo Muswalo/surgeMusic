@@ -205,6 +205,10 @@ function getTotalNews()
                     <input type="text" class="form-control" id="news-headline" name="news-headline" required>
                 </div>
                 <div class="form-group">
+                    <label for="news-content">Author Name</label>
+                    <input class="form-control" id="news-headlinet" name="author-name"  required>
+                </div>
+                <div class="form-group">
                     <label for="news-content">Content</label>
                     <textarea class="form-control" id="news-content" name="news-content" rows="5" required></textarea>
                 </div>

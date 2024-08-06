@@ -96,18 +96,18 @@ try {
      music industry.';
 
     $domain = $_SERVER['HTTP_HOST'];
-    $imageUrl = 'http://' . $domain;
+    $imageUrl = 'https://' . $domain;
     if (isset($_GET['req']) && isset($_GET['t'])) {
         $rec = checkDb($conn, $_GET['req'], $_GET['t']);
         if (!empty($rec)) {
             if ($rec['type'] == 'music') {
                 $title = $rec['title'];
                 $desc = $rec['title'] . ' by ' . $rec['artist_name'];
-                $imageUrl = 'http://' . $domain . '/img/' . $rec['song_art_work'];
+                $imageUrl = 'https://' . $domain . '/img/' . $rec['song_art_work'];
             } elseif ($rec['type'] == 'news') {
                 $title = $rec['headline'];
                 $desc = $rec['headline'] . ' by ' . $rec['posted_by'];
-                $imageUrl = 'http://' . $domain . '/img/' . $rec['image'];
+                $imageUrl = 'https://' . $domain . '/img/' . $rec['image'];
             }
         }
     }
@@ -126,6 +126,8 @@ try {
     <script src="js/audio-control.js" defer></script>
     <script src="js/news.js" defer></script>
     <script src="js/share.js" defer></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1490207580728898"
+     crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>

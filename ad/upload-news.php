@@ -3,7 +3,8 @@
 require_once 'check-loging.php';
 checkAdminLogin();
 // Function to compress an image
-function compressImage($sourcePath, $targetPath, $quality) {
+function compressImage($sourcePath, $targetPath, $quality)
+{
     $imageInfo = getimagesize($sourcePath);
     $mimeType = $imageInfo['mime'];
 
@@ -42,13 +43,15 @@ function compressImage($sourcePath, $targetPath, $quality) {
 }
 
 // Function to generate a unique ID
-function generateUniqueID() {
+function generateUniqueID()
+{
     $id = bin2hex(random_bytes(8)); // Generate a random ID
     return $id;
 }
 
 // Function to create a news record in the database
-function createNewsRecord($id, $headline, $newsContent,$postedBy, $link, $image) {
+function createNewsRecord($id, $headline, $newsContent, $postedBy, $link, $image)
+{
     // Database connection code
     require_once '../config/dbh.conf.php';
 
@@ -80,20 +83,22 @@ function createNewsRecord($id, $headline, $newsContent,$postedBy, $link, $image)
 
 // Process the form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve the form data
-    $headline = $_POST['news-headline'];
-    $newsContent = $_POST['news-content'];
-    $postedBy = 'admin';
-    $link = "?req={$headline}&t=news";
-
-    // Upload the image file
-    $image = $_FILES['news-image'];
 
     // Generate a unique ID
     $id = generateUniqueID();
 
+    // Retrieve the form data
+    $headline = $_POST['news-headline'];
+    $newsContent = $_POST['news-content'];
+    $postedBy = $_POST['author-name'];
+    $link = "?req={$id}&t=news";
+
+    // Upload the image file
+    $image = $_FILES['news-image'];
+
+
     // Specify the target directory and generate a unique file name
-    $targetDirectory = dirname(__DIR__).'/img';
+    $targetDirectory = dirname(__DIR__) . '/img';
     $fileName = $id . '_' . $image['name'];
     $targetPath = $targetDirectory . '/' . $fileName;
 

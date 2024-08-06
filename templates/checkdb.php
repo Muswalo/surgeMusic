@@ -4,9 +4,9 @@ function checkDb ($conn, $value, $type) {
     $sql = '';
     if ($type == 'music') {
 
-        $sql = "SELECT 'music' as `type`, id,title,artist_name,song,link,plays,downloads,`date`,song_art_work FROM music WHERE title = :val";
+        $sql = "SELECT 'music' as `type`, id,title,artist_name,song,link,plays,downloads,`date`,song_art_work FROM music WHERE id = :val";
     }else if ($type == 'news'){
-        $sql = "SELECT 'news' AS type,id,headline,news,`date`,posted_by,link,image FROM news WHERE headline = :val";
+        $sql = "SELECT 'news' AS type,id,headline,news,`date`,posted_by,link,image FROM news WHERE id = :val";
     }else {
         return [];
     }
