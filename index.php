@@ -186,12 +186,6 @@ try {
             }
             ?>
         </section>
-        <section>
-            <br><br>
-            <h3 class="mu">Videos</h3>
-
-            <iframe class="video" src="https://www.youtube.com/embed/Tppw6gL4u_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </section>
 
         <section class="pagination">
             <?php
