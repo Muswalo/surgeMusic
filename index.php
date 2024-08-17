@@ -81,15 +81,7 @@ try {
 <html>
 
 <head>
-    <title>Surge Music</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Emmanuel Muswalo">
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="Welcome to Surge Music! We provide 
-    a platform to discover and enjoy a wide variety of African music and 
-    news. Stay up-to-date with the latest updates and trends in the African music industry.">
-
-    <?php
+<?php
     $title = 'Surge Music';
     $desc = 'Welcome to Surge Music! We provide a platform to discover and enjoy a wide variety 
     of African music and news. Stay up-to-date with the latest updates and trends in the African
@@ -112,6 +104,15 @@ try {
         }
     }
     ?>
+    <title>
+        <?php 
+            echo !isset($_GET['req']) || $rec['type'] == 'news' ? $title : $desc;
+        ?>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Emmanuel Muswalo">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="<?php echo $desc?>">
     <meta property="og:title" content="<?php echo $title ?>">
     <meta property="og:description" content="<?php echo $desc ?>">
     <meta property="og:image" content="<?php echo $imageUrl ?>">
