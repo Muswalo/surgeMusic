@@ -192,12 +192,12 @@ try {
             <?php
             if ($page > 1) {
                 $prevPage = $page - 1;
-                echo '<a href="?page=' . $prevPage . '"><i class="fas fa-chevron-left"></i> Previous</a>';
+                echo '<a href="https://surgemusic.site/?page=' . $prevPage . '"><i class="fas fa-chevron-left"></i> Previous</a>';
             }
 
             if ($page < $musicPages || $page < $newsPages) {
                 $nextPage = $page + 1;
-                echo '<a href="?page=' . $nextPage . '">Next <i class="fas fa-chevron-right"></i></a>';
+                echo '<a href="https://surgemusic.site/?page=' . $nextPage . '">Next <i class="fas fa-chevron-right"></i></a>';
             }
             ?>
         </section>

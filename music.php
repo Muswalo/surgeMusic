@@ -102,7 +102,7 @@ try {
                 <?php endfor; ?>
 
                 <?php if ($currentPage < $totalPages) : ?>
-                    <a href="?page=<?php echo $currentPage + 1; ?>" class="page-link" aria-label="Next">
+                    <a href="https://surgemusic.site/?page=<?php echo $currentPage + 1; ?>" class="page-link" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                         <span class="sr-only">Next</span>
                     </a>

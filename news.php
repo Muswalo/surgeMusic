@@ -94,7 +94,7 @@ try {
                 <?php endif; ?>
 
                 <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
-                    <a href="?page=<?php echo $i; ?>" class="page-link <?php echo ($i == $currentPage) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+                    <a href="https://surgemusic.site/?page=<?php echo $i; ?>" class="page-link <?php echo ($i == $currentPage) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                 <?php endfor; ?>
 
                 <?php if ($currentPage < $totalPages) : ?>
