@@ -19,7 +19,7 @@ function musicTemplate($title, $artist, $views, $downloads, $song, $link, $img, 
                 <a href="audio/<?php echo $song?>" style="display:none;" class="songDownload" download></a>
                 <audio src="audio/<?php echo $song?>" class="song"></audio>
                 <span><button onclick="download(this ,'<?php echo $downId ?>', '<?php echo $recordId?>')">Download</button></span>
-                <span><button onclick="togglePlay(this, '<?php echo $recordId?>', '<?php echo $viewsId ?>')"><i class="fas fa-play"></i></button></span>
+                <span><button onclick="togglePlay(this, '<?php echo $recordId?>', '<?php echo $viewsId ?>', {songTitle: '<?php echo addslashes($title)?>', artistName: '<?php echo addslashes($artist)?>', album: 'surge music', artwork: '<?php echo $img?>'})"><i class="fas fa-play"></i></button></span>
                 <span><button onclick="share('<?php echo $link?>');"><i class="fas fa-share"></i></button></span>
             </span>
         </div>

@@ -200,6 +200,8 @@ try {
             }
             ?>
         </section>
+        <!-- embeded music player  -->
+         
     </main>
     <?php
     footer();

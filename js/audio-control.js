@@ -1,6 +1,6 @@
 var currentAudio = null;  // Reference to the currently playing audio element
 
-async function togglePlay(button, recordId, viewElementId) {
+async function togglePlay(button, recordId, viewElementId, metaData) {
   const audio = button.closest('.buttons').querySelector('.song');
   button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
@@ -14,7 +14,7 @@ async function togglePlay(button, recordId, viewElementId) {
 
   if (audio.paused) {
     stopCurrentAudio(button, recordId); // Stop the currently playing audio, if any
-    await startAudio(audio, recordId, button, viewElementId);
+    await startAudio(audio, recordId, button, viewElementId, metaData);
     button.innerHTML = '<i class="fas fa-pause"></i>';
   } else {
     stopAudio(audio, button, recordId);
@@ -28,7 +28,7 @@ function stopCurrentAudio(button, recordId) {
   }
 }
 
-async function startAudio(audio, recordId, button, viewElementId) {
+async function startAudio(audio, recordId, button, viewElementId, metaData) {
   // console.log('startAudio()'+recordId);
   let audioLength = audio.duration;
 
@@ -71,6 +71,45 @@ async function startAudio(audio, recordId, button, viewElementId) {
         }
       }
     }, 1000);
+
+    // Update Media Session metadata
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: metaData.songTitle, 
+        artist: metaData.artistName, 
+        album: metaData.album, 
+        artwork: [
+          { src: `img/${metaData.artwork}` },
+        ]
+      });
+
+      navigator.mediaSession.setActionHandler('play', function() {
+        if (currentAudio) {
+          currentAudio.play();
+        }
+      });
+
+      navigator.mediaSession.setActionHandler('pause', function() {
+        if (currentAudio) {
+          currentAudio.pause();
+        }
+      });
+      
+    // TO DO
+    //   navigator.mediaSession.setActionHandler('seekbackward', function(details) {
+    //     if (currentAudio) {
+    //       currentAudio.currentTime = Math.max(currentAudio.currentTime - (details.seekOffset || 10), 0);
+    //     }
+    //   });
+
+    //   navigator.mediaSession.setActionHandler('seekforward', function(details) {
+    //     if (currentAudio) {
+    //       currentAudio.currentTime = Math.min(currentAudio.currentTime + (details.seekOffset || 10), currentAudio.duration);
+    //     }
+    //   });
+    //   navigator.mediaSession.setActionHandler('previoustrack', function() {});
+    //   navigator.mediaSession.setActionHandler('nexttrack', function() {});
+    }
   });
 
   // Update the currentAudio reference
