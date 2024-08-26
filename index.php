@@ -124,6 +124,7 @@ try {
     <link rel="stylesheet" href="css/music-template.css">
     <link rel="stylesheet" href="css/news.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="canonical" href="https://www.surgemusic.site" />
     <script src="js/audio-control.js" defer></script>
     <script src="js/news.js" defer></script>
     <script src="js/share.js" defer></script>

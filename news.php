@@ -56,6 +56,7 @@ try {
     <link rel="stylesheet" href="css/nav-bar.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/news.css">
+    <link rel="canonical" href="https://www.surgemusic.site/news.php" />
     <script src="js/news.js" defer></script>
     <script src="js/share.js" defer></script>
 </head>
