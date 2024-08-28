@@ -77,7 +77,7 @@ function createMusicRecord($title, $artistName, $songArtwork, $songFile, $conn,$
     // Compress and store the song artwork
     // $songImageName = uniqid('image_').microtime(true).$songArtwork['name'];
     $compressedArtwork = compressImage($songArtwork['tmp_name'], $targetDirectory . '/' . $id . '.jpg', 60);
-    $link = "?req={$id}&t=music";
+    $link = "view.php?id={$id}&type=music";
     $query = "INSERT INTO music (id, title, artist_name, song, link, song_art_work) VALUES (:id, :title, :artistName, :song, :link, :songArtwork)";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':id', $id);

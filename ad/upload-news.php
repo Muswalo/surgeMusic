@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $headline = $_POST['news-headline'];
     $newsContent = $_POST['news-content'];
     $postedBy = $_POST['author-name'];
-    $link = "?req={$id}&t=news";
+    $link = "view.php?id={$id}&type=news";
 
     // Upload the image file
     $image = $_FILES['news-image'];

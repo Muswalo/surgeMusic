@@ -1,13 +1,16 @@
 <?php
 
-function newTemplate($headline, $article, $date, $author, $link, $image){
+function newTemplate($headline, $article, $date, $author, $link, $image)
+{
 
 ?>
 
     <div class="container">
         <div class="article">
-            <img src="img/<?php echo $image?>" alt="<?php echo $headline ?>" loading= "lazy">
-            <h4 class="headline"><?php echo $headline ?></h4>
+            <img src="img/<?php echo $image ?>" alt="<?php echo $headline ?>" loading="lazy">
+            <a href="<?php echo 'https://surgemusic.site/' . $link ?>" style="text-decoration: none; color:black;">
+                <h4 class="headline"><?php echo $headline ?></h4>
+            </a>
             <p class="article-content"><?php echo $article ?></p>
             <div class="meta-info">
                 <span><i class="fas fa-calendar-alt"></i> <?php echo date('F j, Y g:i a', strtotime($date)) ?></span>
@@ -17,7 +20,7 @@ function newTemplate($headline, $article, $date, $author, $link, $image){
                 <button class="btn-read-more" onclick="toggleContent(this)">
                     <i class="fas fa-plus"></i> Read More
                 </button>
-                <?php $link = "'".$link."'"?>
+                <?php $link = "'" . $link . "'" ?>
                 <button class="btn-share" onclick="share (<?php echo $link ?>)">
                     <i class="fas fa-share"></i>
                 </button>

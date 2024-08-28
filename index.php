@@ -81,11 +81,18 @@ try {
 <html>
 
 <head>
-<?php
+    <?php
     $title = 'Surge Music';
     $desc = 'Welcome to Surge Music! We provide a platform to discover and enjoy a wide variety 
     of African music and news. Stay up-to-date with the latest updates and trends in the African
      music industry.';
+
+    #####################################################################################################
+    ####################################################################################################
+    ####################################################################################################
+    ######################################################################################################
+    //  Compatibilty for Legacy link handler. This part of the code will be rolled out in the second iteratio
+    //  In favour of using the view.php script which is more favourable for search engine crawlers
 
     $domain = $_SERVER['HTTP_HOST'];
     $imageUrl = 'https://' . $domain;
@@ -105,14 +112,14 @@ try {
     }
     ?>
     <title>
-        <?php 
-            echo !isset($_GET['req']) || $rec['type'] == 'news' ? $title : $desc;
+        <?php
+        echo !isset($_GET['req']) || $rec['type'] == 'news' ? $title : $desc;
         ?>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Emmanuel Muswalo">
     <meta name="robots" content="index, follow">
-    <meta name="description" content="<?php echo $desc?>">
+    <meta name="description" content="<?php echo $desc ?>">
     <meta property="og:title" content="<?php echo $title ?>">
     <meta property="og:description" content="<?php echo $desc ?>">
     <meta property="og:image" content="<?php echo $imageUrl ?>">
@@ -129,7 +136,7 @@ try {
     <script src="js/news.js" defer></script>
     <script src="js/share.js" defer></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1490207580728898"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -143,7 +150,14 @@ try {
     </nav>
 
     <main>
-
+        <?php
+        #####################################################################################################
+        ####################################################################################################
+        ####################################################################################################
+        ######################################################################################################
+        //  Compatibilty for Legacy link handler. This part of the code will be rolled out in the second iteratio
+        //  In favour of using the view.php script which is more favourable for search engine crawlers
+        ?>
         <section>
             <?php
             if (isset($_GET['req']) && isset($_GET['t'])) {
@@ -162,7 +176,7 @@ try {
             }
             ?>
         </section>
-        <section role="music">
+        <section>
             <h3 class="mu">Music</h3>
             <?php
             if (empty($musicRecords)) {
@@ -175,7 +189,7 @@ try {
             ?>
         </section>
 
-        <section role="news">
+        <section>
             <h3 class="mu">News</h3>
             <?php
             if (empty($latestNews)) {
@@ -202,7 +216,7 @@ try {
             ?>
         </section>
         <!-- embeded music player  -->
-         
+
     </main>
     <?php
     footer();
