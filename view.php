@@ -22,6 +22,7 @@ $type = $_GET['type'];
 $record = checkDb($conn, $id, $type);
 
 if (empty($record)) {
+    http_response_code(404);
     die('Record not found.');
 }
 
@@ -46,7 +47,7 @@ if (empty($record)) {
     <link rel="stylesheet" href="css/footer.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+    <link rel="canonical" href="https://surgemusic.site/<?php echo htmlspecialchars($record['type'] == 'music' ? $record['link'] : $record['link']); ?>" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
     <script src="js/audio-control.js" defer></script>
     <script src="js/news.js" defer></script>

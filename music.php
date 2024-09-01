@@ -56,7 +56,7 @@ try {
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/music-template.css">
-    <link rel="canonical" href="https://www.surgemusic.site/music.php" />
+    <link rel="canonical" href="https://surgemusic.site/music.php" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" defer></script>
     <script src="js/share.js" defer></script>
     <script src="js/audio-control.js" defer></script>

@@ -78,14 +78,14 @@ try {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <?php
     $title = 'Surge Music';
-    $desc = 'Welcome to Surge Music! We provide a platform to discover and enjoy a wide variety 
+    $desc = '`Welcome to Surge Music! We provide a platform to discover and enjoy a wide variety 
     of African music and news. Stay up-to-date with the latest updates and trends in the African
-     music industry.';
+     music industry.`';
 
     #####################################################################################################
     ####################################################################################################
@@ -131,7 +131,7 @@ try {
     <link rel="stylesheet" href="css/music-template.css">
     <link rel="stylesheet" href="css/news.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="canonical" href="https://www.surgemusic.site" />
+    <link rel="canonical" href="https://surgemusic.site" />
     <script src="js/audio-control.js" defer></script>
     <script src="js/news.js" defer></script>
     <script src="js/share.js" defer></script>
@@ -165,6 +165,7 @@ try {
                 $record = checkDb($conn, $_GET['req'], $_GET['t']);
 
                 if (empty($record)) {
+                    http_response_code(404);
                     echo '<p class="no-records">Invalid link</p>';
                 } else {
                     if ($record['type'] == 'music') {
