@@ -31,7 +31,13 @@ if (empty($record)) {
 <html lang="en">
 
 <head>
-    <title><?php echo htmlspecialchars($record['type'] == 'music' ? $record['title'] : $record['headline']); ?> - Surge Music</title>
+    <title>
+        <?php
+        echo htmlspecialchars($record['type'] == 'music' ?
+            $record['title'] . ' by ' . $record['artist_name'] :
+            $record['headline']);
+        ?> - Surge Music
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="<?php echo $record['type'] == 'news' ? htmlspecialchars($record['posted_by']) : 'Surge Music'; ?>">
     <meta name="robots" content="index, follow">
@@ -69,7 +75,6 @@ if (empty($record)) {
             } elseif ($record['type'] == 'news') {
                 newTemplate($record['headline'], $record['news'], $record['date'], $record['posted_by'], $record['link'], $record['image']);
                 echo '<div class="buttons"><a href="index.php" class="btn btn-primary">Back to Home</a></div>';
-
             }
             ?>
         </section>
@@ -81,6 +86,7 @@ if (empty($record)) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
 <?php
 $conn = null;
