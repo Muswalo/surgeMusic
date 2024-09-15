@@ -10,6 +10,7 @@ require_once 'templates/news-template.php';
 require_once 'templates/checkdb.php';
 require_once 'templates/footer.php';
 require_once 'templates/countvisits.php';
+require_once 'templates/topSongBanner.php';
 countPageVisit($conn);
 // Number of records per page
 $perPage = 10;
@@ -75,6 +76,31 @@ try {
     die('Something went wrong');
 }
 
+try {
+    // Query to fetch the song with the highest sum of plays and downloads
+    $sql = "SELECT *, (plays + downloads) AS total_engagement 
+            FROM music 
+            ORDER BY total_engagement DESC 
+            LIMIT 1";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+
+    $topSong = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($topSong) {
+        $titleSong = $topSong['title'];
+        $artist = $topSong['artist_name'];
+        $plays = $topSong['plays']+$topSong['downloads'];
+        $song = $topSong['song'];
+        $img = $topSong['song_art_work'];
+        $recordId = $topSong['id'];
+        $backgroundImage = $topSong['song_art_work'];
+    } else {
+        echo "No songs found.";
+    }
+} catch (PDOException $e) {
+    die('something went wrong');
+}
 ?>
 
 <!DOCTYPE html>
@@ -177,6 +203,13 @@ try {
             }
             ?>
         </section>
+
+        <section style="display: flex; justify-content: center; margin: 0 22px">
+            <?php
+            topSongBanner($titleSong, $artist, $plays, $song,$img, $recordId, $backgroundImage);
+            ?>
+        </section>
+        <br>
         <section>
             <h3 class="mu">Music</h3>
             <?php
